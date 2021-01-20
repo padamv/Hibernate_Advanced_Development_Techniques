@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.luv2code.hibernate.demo.entity.Status;
-import com.luv2code.hibernate.demo.entity.Student;
+import com.luv2code.hibernate.demo.entity.User;
 
 public class CreateStudentDemo {
 
@@ -14,7 +14,7 @@ public class CreateStudentDemo {
 		// create session factory
 		SessionFactory factory = new Configuration()
 									.configure("hibernate.cfg.xml")
-									.addAnnotatedClass(Student.class)
+									.addAnnotatedClass(User.class)
 									.buildSessionFactory();
 		
 		// create session
@@ -22,8 +22,8 @@ public class CreateStudentDemo {
 		
 		try {
 			// create the object
-			Student tempStudent1 = new Student ("Paul", "Wall", "paul@luv2code.com", Status.ACTIVE);
-			Student tempStudent2 = new Student ("Mary", "Public", "Mary@luv2code.com", Status.INACTIVE);
+			User tempStudent1 = new User ("Paul", "Wall", "paul@luv2code.com", Status.ACTIVE);
+			User tempStudent2 = new User ("Mary", "Public", "Mary@luv2code.com", Status.INACTIVE);
 			
 			// start a transaction
 			session.beginTransaction();

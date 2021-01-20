@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "student")
-public class Student {
+@Table(name = "user")
+public abstract class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,16 +26,13 @@ public class Student {
 	@Column(name = "email")
 	private String email;
 	
-	@Enumerated(EnumType.STRING)
-	@Column(name="status")
-	private Status status;
 
-	public Student(String firstName, String lastName, String email, Status status) {
+
+	public User(String firstName, String lastName, String email) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.status = status;
 	}
 
 	public int getId() {
@@ -70,18 +67,11 @@ public class Student {
 		this.email = email;
 	}
 
-	public Status getStatus() {
-		return status;
-	}
-
-	public void setStatus(Status status) {
-		this.status = status;
-	}
 
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", status=" + status + "]";
+				+  "]";
 	}
 
 }
