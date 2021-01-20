@@ -1,6 +1,8 @@
 package com.luv2code.hibernate.demo.entity;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="USER_TYPE", discriminatorType = DiscriminatorType.STRING)
 public abstract class User {
 
 	@Id
