@@ -28,14 +28,14 @@ public class CreateStudentAddressDemo {
 			Student tempStudent = new Student ("Paul", "Wall", "paul@luv2code.com");
 			
 			// create the address object
-			Address homeAddress = new Address("Some Street", "Some City", "12345");
+			Address billingAddress = new Address("Some Billing Street", "Some Billing City", "12345");
 			
 			// start a transaction
 			session.beginTransaction();
 			
 			// save the object
 			System.out.println("Saving the student and address...");
-			tempStudent.setHomeAddress(homeAddress);
+			tempStudent.setBillingAddress(billingAddress);
 			session.save(tempStudent);
 			
 			// commit the transaction
