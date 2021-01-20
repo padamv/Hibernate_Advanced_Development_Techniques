@@ -39,6 +39,9 @@ public class Student {
 	@OrderBy	// Defaults to order by map key column ascending
 	private SortedMap<String, String> images = new TreeMap<String, String>();
 	
+	public Student() {
+		
+	}
 
 	public Student(String firstName, String lastName, String email) {
 		this.firstName = firstName;
