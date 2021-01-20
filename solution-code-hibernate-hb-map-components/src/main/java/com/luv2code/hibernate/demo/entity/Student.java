@@ -1,16 +1,11 @@
 package com.luv2code.hibernate.demo.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -30,11 +25,9 @@ public class Student {
 	@Column(name="email")
 	private String email;
 	
-	@ElementCollection
-	@CollectionTable(name="image")
-	@OrderColumn
-	@Column(name="file_name") // defaults to images
-	private List<String> images = new ArrayList<String>();
+	// @Embedded
+	// The address is embeddable, so no annotation needed
+	private Address homeAddress;
 	
 
 	public Student(String firstName, String lastName, String email) {
@@ -76,12 +69,12 @@ public class Student {
 	}
 	
 
-	public List<String> getImages() {
-		return images;
+	public Address getHomeAddress() {
+		return homeAddress;
 	}
 
-	public void setImages(List<String> images) {
-		this.images = images;
+	public void setHomeAddress(Address homeAddress) {
+		this.homeAddress = homeAddress;
 	}
 
 	@Override
