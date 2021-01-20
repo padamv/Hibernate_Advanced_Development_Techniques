@@ -1,6 +1,6 @@
 package com.luv2code.hibernate.demo.demo;
 
-import java.util.Set;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.luv2code.hibernate.demo.entity.Student;
 
-public class CreateStudentImagesSetDemo {
+public class CreateStudentImagesListDemo {
 
 	public static void main(String[] args) {
 		
@@ -24,14 +24,14 @@ public class CreateStudentImagesSetDemo {
 		try {
 			// create the object
 			Student tempStudent = new Student ("Paul", "Wall", "paul@luv2code.com");
-			Set<String> theImages = tempStudent.getImages();
+			List<String> theImages = tempStudent.getImages();
 			
 			theImages.add("photo1.jpg");
 			theImages.add("photo2.jpg");
 			theImages.add("photo3.jpg");
 			theImages.add("photo4.jpg");
 			theImages.add("photo5.jpg");
-			theImages.add("photo6.jpg");
+			theImages.add("photo5.jpg");    // List allows duplicates
 			
 			// start a transaction
 			session.beginTransaction();
