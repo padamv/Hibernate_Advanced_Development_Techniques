@@ -1,6 +1,7 @@
 package com.luv2code.hibernate.demo.entity;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CollectionTable;
@@ -31,10 +32,9 @@ public class Student {
 	private String email;
 	
 	@ElementCollection
-	@CollectionTable(name="image", 		// defaults to student_images
-					joinColumns = @JoinColumn(name="student_id"))
+	@CollectionTable(name="image")
 	@Column(name="file_name") // defaults to images
-	private Set<String> images = new HashSet<String>();
+	private List<String> images = new ArrayList<String>();
 	
 
 	public Student(String firstName, String lastName, String email) {
@@ -76,11 +76,11 @@ public class Student {
 	}
 	
 
-	public Set<String> getImages() {
+	public List<String> getImages() {
 		return images;
 	}
 
-	public void setImages(Set<String> images) {
+	public void setImages(List<String> images) {
 		this.images = images;
 	}
 
